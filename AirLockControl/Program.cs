@@ -98,14 +98,12 @@ namespace SpaceEngineers{
         private void toggleAirLockFromOutside()
         {
 
-            if (doorOUT.Open)
+            if (doorOUT.Status == DoorStatus.Open)
             {
                 doorOUT.CloseDoor();
-                timer.StartCountdown();
-                while (timer.IsCountingDown){}
+                timer.StartCountdown();                
 
-                airVent.ApplyAction("Depressurize");
-                while (airVent.IsDepressurizing) { }
+                airVent.ApplyAction("Depressurize");                
 
                 doorIN.OpenDoor();
             }
@@ -113,10 +111,8 @@ namespace SpaceEngineers{
             {
                 doorIN.CloseDoor();
                 timer.StartCountdown();
-                while (timer.IsCountingDown) { }
 
                 airVent.ApplyAction("Depressurize");                
-                while (airVent.IsDepressurizing) { }
 
                 doorOUT.OpenDoor();
             }
@@ -127,14 +123,12 @@ namespace SpaceEngineers{
         private void toggleAirLockFromInside()
         {
 
-            if (doorIN.Open)
+            if (doorIN.Status == DoorStatus.Open)
             {
                 doorIN.CloseDoor();
                 timer.StartCountdown();
-                while (timer.IsCountingDown) { }
 
                 airVent.ApplyAction("Depressurize");
-                while (airVent.IsDepressurizing) { }
 
                 doorOUT.OpenDoor();
             }
@@ -142,10 +136,8 @@ namespace SpaceEngineers{
             {
                 doorOUT.CloseDoor();
                 timer.StartCountdown();
-                while (timer.IsCountingDown) { }
 
                 airVent.ApplyAction("Depressurize");
-                while (airVent.IsDepressurizing) { }
 
                 doorIN.OpenDoor();
             }
@@ -159,7 +151,6 @@ namespace SpaceEngineers{
             if (airVent.Depressurize)
             {
                 airVent.ApplyAction("Depressurize");
-                while (airVent.IsDepressurizing) { }
                 
                 doorIN.OpenDoor();
             }
@@ -181,9 +172,10 @@ namespace SpaceEngineers{
             else
             {
                 airVent.ApplyAction("Depressurize");
-                while (airVent.IsDepressurizing) { }
                 doorOUT.OpenDoor();
             }
+
+
 
         }
 

@@ -35,6 +35,5 @@ The different button methods provide:
 
 ### TO-DO
 
-- *status reading functions* might be obsolete and need to be replaced with updated functions (see documentation)
-- *countdown loop* needs more testing
+- integrate *timer block* to delay opening doors and pressurization
 - *deactivation of doors* while methods run to prevent players from interupting the air lock control
